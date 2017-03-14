@@ -13,6 +13,9 @@ puts "----------"
 
 puts "Please enter a store name"
 input = gets.chomp
-puts Store.create(name: input).errors.messages
+error1 = Store.create(name: input).errors.messages
+puts error1
 
-
+error1.each do |error, key|
+  puts "#{error}, #{key[0]}"
+end
